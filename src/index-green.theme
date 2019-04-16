@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Ambiance-Flat-Green
+Comment=Ambiance Flat, A Redesigned Modern & Flat, Ambiance Based Theme W/New Colors By RAVEfinity.com
+Encoding=UTF-8
+
+Name[en_CA]=index-green.theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Ambiance-Flat-Green
+MetacityTheme=Ambiance-Flat-Green
+IconTheme=Vibrancy-Full-Dark-Green
+CursorTheme=DMZ-White
+ButtonLayout=close,minimize,maximize:

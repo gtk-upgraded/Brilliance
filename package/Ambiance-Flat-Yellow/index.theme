@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Ambiance-Flat-Yellow
+Comment=Ambiance Flat, A Redesigned Modern & Flat, Ambiance Based Theme W/New Colors By RAVEfinity.com
+Encoding=UTF-8
+
+Name[en_CA]=index-yellow.theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Ambiance-Flat-Yellow
+MetacityTheme=Ambiance-Flat-Yellow
+IconTheme=Vibrancy-Full-Dark-Yellow
+CursorTheme=DMZ-White
+ButtonLayout=close,minimize,maximize:

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Ambiance-Flat-Purple
+Comment=Ambiance Flat, A Redesigned Modern & Flat, Ambiance Based Theme W/New Colors By RAVEfinity.com
+Encoding=UTF-8
+
+Name[en_CA]=index-purple.theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Ambiance-Flat-Purple
+MetacityTheme=Ambiance-Flat-Purple
+IconTheme=Vibrancy-Full-Dark-Purple
+CursorTheme=DMZ-White
+ButtonLayout=close,minimize,maximize:

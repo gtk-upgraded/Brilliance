@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Ambiance-Flat-Blue
+Comment=Ambiance Flat, A Redesigned Modern & Flat, Ambiance Based Theme W/New Colors By RAVEfinity.com
+Encoding=UTF-8
+
+Name[en_CA]=index-blue.theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Ambiance-Flat-Blue
+MetacityTheme=Ambiance-Flat-Blue
+IconTheme=Vibrancy-Full-Dark-Blue
+CursorTheme=DMZ-White
+ButtonLayout=close,minimize,maximize:
