@@ -36,29 +36,29 @@
       -GtkWidget-window-dragging: true;
       margin-top: 4px;
       margin-bottom: 4px;
-      background-color: gtkmix($borders, $headerbar_bg_color, 0.5);
+      background-color: gtkshade($headerbar_bg_color, 0.5);
 
       &:backdrop {
-        background-color: $unfocused_borders;
+        background-color: gtkshade($headerbar_bg_color, 0.5);
       }
     }
 
     .titlebar &, .titlebar:not(headerbar) > &, .titlebar &.titlebutton, .titlebar:not(headerbar) > &.titlebutton {
       -GtkWidget-window-dragging: true;
-      background-color: gtkmix($borders, $titlebar_bg_color, 0.5);
+      background-color: gtkshade($titlebar_bg_color, 0.5);
 
       &:backdrop {
-        background-color: $unfocused_borders;
+        background-color: gtkshade($titlebar_bg_color, 0.5);
       }
     }
 
     headerbar &.titlebutton, .titlebar:not(headerbar) &.titlebutton {
       min-width: 1px;
       min-height: 1px;
-      background-color: gtkmix($borders, $titlebar_bg_color, 0.5);
+      background-color: gtkshade($titlebar_bg_color, 0.5);
 
       &:backdrop {
-        background-color: $unfocused_borders;
+        background-color: gtkshade($titlebar_bg_color, 0.5);
       }
     }
 
@@ -71,25 +71,29 @@
     }
 
     headerbar button & {
-      border-color: gtkmix($borders, $headerbar_bg_color, 0.5);
+      border-color: gtkshade($headerbar_bg_color, 0.5);
 
       &:backdrop {
-        border-color: $unfocused_borders;
+        border-color: gtkshade($headerbar_bg_color, 0.5);
       }
     }
 
     .titlebutton button &, .titlebutton &.titlebutton {
-      border-color: gtkmix($borders, $headerbar_bg_color, 0.5);
+      border-color: gtkshade($titlebar_bg_color, 0.5);
 
       &:backdrop {
-        border-color: $unfocused_borders;
+        border-color: gtkshade($titlebar_bg_color, 0.5);
       }
+    }
+
+    menu & {
+      background-color: gtkshade($menu_bg_color, 0.5);
     }
 
     menuitem & {
       border-width: 1px;
       border-style: none;
-      color: gtkmix($borders, $menu_bg_color, 0.5);
+      color: gtkshade($menu_bg_color, 0.5);
     }
 
     popover & {

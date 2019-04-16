@@ -1,8 +1,8 @@
 /* Normal colors */
-@define-color bg_color #4a4a4a;
-@define-color fg_color #ffffff;
-@define-color base_color #454545;
-@define-color text_color #ffffff;
+@define-color bg_color #f2f2f2;
+@define-color fg_color #4c4c4c;
+@define-color base_color #ffffff;
+@define-color text_color #3c3c3c;
 @define-color selected_bg_color #546BCF;
 @define-color selected_fg_color #FFFFFF;
 @define-color selected_base_color @selected_bg_color;
@@ -26,7 +26,7 @@
 
 /* Darker color scheme */
 @define-color dark_bg_color #454545;
-@define-color dark_fg_color #ffffff;
+@define-color dark_fg_color #dfdfdf;
 
 /* Theme colors */
 @define-color theme_bg_color @bg_color;
@@ -61,7 +61,7 @@
 
 /* Borders */
 @define-color borders shade(@bg_color, 0.8);
-@define-color outline_color shade(@bg_color, 1.75);
+@define-color outline_color @fg_color;
 @define-color unfocused_borders shade(@unfocused_bg_color, 0.8);
 
 /* Notification header backgrounds */
@@ -82,22 +82,22 @@
 /* Widget colors */
 @define-color tooltip_bg_color @dark_bg_color;
 @define-color tooltip_fg_color @dark_fg_color;
-@define-color menu_bg_color @base_color;
-@define-color menu_fg_color @fg_color;
-@define-color menubar_bg_color @bg_color;
-@define-color menubar_fg_color @fg_color;
+@define-color menu_bg_color @dark_bg_color;
+@define-color menu_fg_color @dark_fg_color;
+@define-color menubar_bg_color @dark_bg_color;
+@define-color menubar_fg_color @dark_fg_color;
 @define-color toolbar_bg_color @bg_color;
 @define-color toolbar_fg_color @fg_color;
 @define-color sidebar_bg_color @bg_color;
 @define-color sidebar_fg_color @fg_color;
 @define-color taskbar_bg_color @dark_bg_color;
 @define-color taskbar_fg_color @dark_fg_color;
-@define-color titlebar_bg_color @bg_color;
-@define-color titlebar_fg_color @fg_color;
-@define-color headerbar_bg_color @bg_color;
-@define-color headerbar_fg_color @fg_color;
+@define-color titlebar_bg_color @dark_bg_color;
+@define-color titlebar_fg_color @dark_fg_color;
+@define-color headerbar_bg_color @dark_bg_color;
+@define-color headerbar_fg_color @dark_fg_color;
 @define-color terminal_bg_color #500038;
-@define-color terminal_fg_color @fg_color;
+@define-color terminal_fg_color #ffffff;
 
 /* OSD */
 @define-color osd_fg @dark_bg_color;
