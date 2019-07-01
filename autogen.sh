@@ -28,8 +28,6 @@ cd ..
 
 # gtk3
 cd gtk-3.0
-# same file for everyone, only colors change
-sass -C --sourcemap=none _common.scss gtk-widgets.css
 
 for i in `cat $INDEX`
 do
@@ -38,13 +36,13 @@ do
   
   cd $i
   
-  sass -C --sourcemap=none gtk.scss gtk.css
-  cp gtk.css $OUTDIR/$VARIANT/gtk-3.0/gtk.css
-  cp -a assets $OUTDIR/$VARIANT/gtk-3.0/assets
+    sass -C --sourcemap=none gtk.scss gtk.css
+    cp gtk.css $OUTDIR/$VARIANT/gtk-3.0/gtk.css
+    cp -a assets $OUTDIR/$VARIANT/gtk-3.0/assets
 
-  cd assets-render
-  ./render-assets.sh
-  cd ..
+    cd assets-render
+      ./render-assets.sh
+    cd ..
   
   cd ..
   

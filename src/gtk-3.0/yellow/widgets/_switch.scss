@@ -1,11 +1,10 @@
 @mixin switch() {
   switch {
     font-size: 0;
-    color: transparent;
     outline-offset: -4px;
     margin: 4px;
     border: 1px solid $borders;
-    border-radius: 16px;
+    border-radius: $roundness + 1;
     background-color: $borders;
 
     &:checked {
@@ -19,12 +18,12 @@
     }
 
     &:disabled {
-      border-color: $disabled_bg_color;
-      background-color: $disabled_bg_color;
+      border-color: gtkshade($disabled_bg_color, 0.8);
+      background-color: gtkshade($disabled_bg_color, 0.8);
 
       &:backdrop {
-        border-color: $unfocused_disabled_bg_color;
-        background-color: $unfocused_disabled_bg_color;
+        border-color: gtkshade($unfocused_disabled_bg_color, 0.8);
+        background-color: gtkshade($unfocused_disabled_bg_color, 0.8);
       }
     }
 
@@ -34,22 +33,22 @@
     }
 
     slider {
-      min-width: 14px;
-      min-height: 14px;
-      margin: 3px;
+      min-width: 26px;
+      min-height: 20px;
+      margin: 0;
       border: none;
-      border-radius: 100%;
+      border-radius: $roundness;
       color: $fg_color;
       background-color: $base_color;
     }
 
     &:disabled {
       slider {
-        background-color: $disabled_base_color;
+        background-color: $disabled_bg_color;
       }
 
       &:backdrop slider {
-        background-color: $unfocused_disabled_base_color;
+        background-color: $unfocused_disabled_bg_color;
       }
     }
 
