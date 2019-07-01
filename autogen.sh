@@ -34,15 +34,20 @@ sass -C --sourcemap=none _common.scss gtk-widgets.css
 for i in `cat $INDEX`
 do
   VARIANT=Ambiance-Flat-${i^}
-
   mkdir $OUTDIR/$VARIANT/gtk-3.0
   
-  cp gtk-$i.css $OUTDIR/$VARIANT/gtk-3.0/gtk.css
-  cp gtk-widgets.css $OUTDIR/$VARIANT/gtk-3.0/gtk-widgets.css
+  cd $i
   
-  ./render-assets.sh $i
+  sass -C --sourcemap=none gtk.scss gtk.css
+  cp gtk.css $OUTDIR/$VARIANT/gtk-3.0/gtk.css
+  cp -a assets $OUTDIR/$VARIANT/gtk-3.0/assets
+
+  cd assets-render
+  ./render-assets.sh
+  cd ..
   
-  cp -a assets/$i $OUTDIR/$VARIANT/gtk-3.0/assets
+  cd ..
+  
 done
 cd ..
 
