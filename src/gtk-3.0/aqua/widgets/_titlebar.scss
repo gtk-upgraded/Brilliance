@@ -64,12 +64,12 @@
     min-height: 30px;
     color: $titlebar_fg_color;
     background-color: $titlebar_bg_color;
-    box-shadow: 0 1px $borders;
+    box-shadow: 0 1px gtkshade($titlebar_bg_color, 0.85);
 
     &:backdrop {
       color: gtkalpha($titlebar_fg_color, 0.8);
-      background-color: $titlebar_bg_color;
-      box-shadow: 0 1px $unfocused_borders;
+      background-color: gtkmix($titlebar_bg_color, $unfocused_bg_color, 0.1);
+      box-shadow: 0 1px gtkshade($titlebar_bg_color, 0.95);
     }
   }
 }

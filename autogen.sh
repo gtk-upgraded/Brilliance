@@ -9,6 +9,32 @@ INDEX=$WORKDIR/variant-index
 
 rm -rf $OUTDIR/*
 
+RENDER=false
+
+args=("$@")
+for f in ${!args[@]}
+do
+  case ${args[$f]} in
+    -c | --clean)
+      for i in `cat $INDEX`
+      do
+        rm -rf ../src/gtk-3.0/$i/assets-render/assets/*
+      done
+      
+      exit
+    ;;
+    -r | --render)
+      RENDER=true
+    ;;
+    -h | --help)
+      echo " -h  --help   Show this"
+      echo " -c  --clean  Remove previously rendered images"
+      echo " -r  --render Force run image generation script (much verbose!)"
+      exit
+    ;;
+  esac
+done
+
 #gtk2
 cd gtk-2.0
 for i in `cat $INDEX`
@@ -35,14 +61,19 @@ do
   mkdir $OUTDIR/$VARIANT/gtk-3.0
   
   cd $i
-  
     sass -C --sourcemap=none gtk.scss gtk.css
+    [ -f 'gtk-dark.scss' ] && sass -C --sourcemap=none gtk-dark.scss gtk-dark.css
+    
     cp gtk.css $OUTDIR/$VARIANT/gtk-3.0/gtk.css
-    cp -a assets $OUTDIR/$VARIANT/gtk-3.0/assets
+    [ -f 'gtk-dark.scss' ] && cp gtk-dark.css $OUTDIR/$VARIANT/gtk-3.0/gtk-dark.css
 
-    cd assets-render
-      ./render-assets.sh
-    cd ..
+    if [ $RENDER ]; then
+      cd assets-render
+        ./render-assets.sh
+      cd ..
+      
+      cp -a assets-render/assets $OUTDIR/$VARIANT/gtk-3.0/assets
+    fi
   
   cd ..
   
