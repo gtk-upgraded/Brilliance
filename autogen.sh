@@ -40,14 +40,28 @@ cd gtk-2.0
 for i in `cat $INDEX`
 do
   VARIANT=Ambiance-Flat-${i^}
-  mkdir $OUTDIR/$VARIANT
+  LIGHT_VARIANT=Radiance-Flat-${i^}
+  DARK_VARIANT=Ambiance-Blackout-Flat-${i^}
   
-  mkdir $OUTDIR/$VARIANT/gtk-2.0
+  mkdir -p $OUTDIR/$VARIANT/gtk-2.0
+  mkdir -p $OUTDIR/$LIGHT_VARIANT/gtk-2.0
+  mkdir -p $OUTDIR/$DARK_VARIANT/gtk-2.0
+  
   cp -r img $OUTDIR/$VARIANT/gtk-2.0/
+  cp -r img $OUTDIR/$LIGHT_VARIANT/gtk-2.0/
+  cp -r img $OUTDIR/$DARK_VARIANT/gtk-2.0/
+  
   cp -r apps $OUTDIR/$VARIANT/gtk-2.0/
+  cp -r apps $OUTDIR/$LIGHT_VARIANT/gtk-2.0/
+  cp -r apps $OUTDIR/$DARK_VARIANT/gtk-2.0/
+  
   cp main.rc $OUTDIR/$VARIANT/gtk-2.0/
+  cp main-light.rc $OUTDIR/$LIGHT_VARIANT/gtk-2.0/main.rc
+  cp main.rc $OUTDIR/$DARK_VARIANT/gtk-2.0/
   
   cp gtkrc-$i $OUTDIR/$VARIANT/gtk-2.0/gtkrc
+  cp gtkrc-$i-light $OUTDIR/$LIGHT_VARIANT/gtk-2.0/gtkrc
+  cp gtkrc-$i-dark $OUTDIR/$DARK_VARIANT/gtk-2.0/gtkrc
 
 done
 cd ..
@@ -58,22 +72,34 @@ cd gtk-3.0
 for i in `cat $INDEX`
 do
   VARIANT=Ambiance-Flat-${i^}
-  mkdir $OUTDIR/$VARIANT/gtk-3.0
+  LIGHT_VARIANT=Radiance-Flat-${i^}
+  DARK_VARIANT=Ambiance-Blackout-Flat-${i^}
+  
+  mkdir -p $OUTDIR/$VARIANT/gtk-3.0
+  mkdir -p $OUTDIR/$LIGHT_VARIANT/gtk-3.0
+  mkdir -p $OUTDIR/$DARK_VARIANT/gtk-3.0
   
   cd $i
     sass -C --sourcemap=none gtk.scss gtk.css
-    [ -f 'gtk-dark.scss' ] && sass -C --sourcemap=none gtk-dark.scss gtk-dark.css
+    sass -C --sourcemap=none gtk-dark.scss gtk-dark.css
+    sass -C --sourcemap=none gtk-light.scss gtk-light.css
     
     cp gtk.css $OUTDIR/$VARIANT/gtk-3.0/gtk.css
-    [ -f 'gtk-dark.scss' ] && cp gtk-dark.css $OUTDIR/$VARIANT/gtk-3.0/gtk-dark.css
+    cp gtk-dark.css $OUTDIR/$VARIANT/gtk-3.0/gtk-dark.css
+    cp gtk-light.css $OUTDIR/$VARIANT/gtk-3.0/gtk-light.css
+    
+    cp gtk-light.css $OUTDIR/$LIGHT_VARIANT/gtk-3.0/gtk.css
+    cp gtk-dark.css $OUTDIR/$DARK_VARIANT/gtk-3.0/gtk.css
 
-    if [ $RENDER ]; then
+    if [ $RENDER == true ]; then
       cd assets-render
         ./render-assets.sh
       cd ..
-      
-      cp -a assets-render/assets $OUTDIR/$VARIANT/gtk-3.0/assets
     fi
+    
+    cp -a assets-render/assets $OUTDIR/$VARIANT/gtk-3.0/assets
+    cp -a assets-render/assets $OUTDIR/$LIGHT_VARIANT/gtk-3.0/assets
+    cp -a assets-render/assets $OUTDIR/$DARK_VARIANT/gtk-3.0/assets
   
   cd ..
   

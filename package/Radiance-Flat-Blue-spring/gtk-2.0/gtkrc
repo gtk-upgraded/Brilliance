@@ -1,0 +1,17 @@
+gtk-color-scheme ="bg_color:#F2F2F2"
+gtk-color-scheme ="fg_color:#4C4C4C"
+gtk-color-scheme ="base_color:#FFFFFF"
+gtk-color-scheme ="text_color:#3C3C3C"
+gtk-color-scheme ="selected_bg_color:#6793DA"
+gtk-color-scheme ="selected_fg_color:#FFFFFF"
+
+gtk-color-scheme ="tooltip_bg_color:#000000"
+gtk-color-scheme ="tooltip_fg_color:#FFFFFF"
+
+gtk-color-scheme ="link_color:#F78B51"
+gtk-color-scheme ="light_grey:#CDCDCD"
+
+gtk-color-scheme ="bg_color_dark:#DFDFDF"
+gtk-color-scheme ="fg_color_dark:#4C4C4C"
+
+include 'main.rc'

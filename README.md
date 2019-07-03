@@ -8,12 +8,12 @@ Once RAVEfinity shut down (uncertainty prestists to this day) and GNOME released
 
 We have taken upon ourselves to restore at least some part of the original RAVEfinity project themes, starting with the Brilliance Pack, which includes Light, Dark and Darker variants, based on the original material.
 
-With the flexibility that the Azurra framework allows, we've restored three variants so far:
-- Ambiance Flat (13 colors, 1 left)
-- Ambiance Blackout Flat (13 colors, 1 left)
-- Radiance Flat (13 colors, 1 left)
+With the flexibility that the Azurra framework allows, we've restored two variants so far:
+- Ambiance Flat (13 colors)
+- Ambiance Blackout Flat (13 colors)
 
 and we're on our way to complete the following:
+- Radiance Flat (13 colors)
 - Vivacious (14 colors)
 - Vivacious Dark (14 colors)
 
