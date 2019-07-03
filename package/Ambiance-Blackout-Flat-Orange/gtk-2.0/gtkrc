@@ -1,6 +1,6 @@
-gtk-color-scheme ="bg_color:#3A3A3A"
+gtk-color-scheme ="bg_color:#454545"
 gtk-color-scheme ="fg_color:#DFDFDF"
-gtk-color-scheme ="base_color:#3A3A3A"
+gtk-color-scheme ="base_color:#454545"
 gtk-color-scheme ="text_color:#DFDFDF"
 gtk-color-scheme ="selected_bg_color:#E66C1E"
 gtk-color-scheme ="selected_fg_color:#FFFFFF"
@@ -11,7 +11,7 @@ gtk-color-scheme ="tooltip_fg_color:#FFFFFF"
 gtk-color-scheme ="link_color:#F78B51"
 gtk-color-scheme ="light_grey:#CDCDCD"
 
-gtk-color-scheme ="bg_color_dark:#3A3A3A"
+gtk-color-scheme ="bg_color_dark:#454545"
 gtk-color-scheme ="fg_color_dark:#DFDFDF"
 
 include 'main.rc'

@@ -288,7 +288,7 @@ style "comboboxentry" = "notebook_button" {
 
 style "menubar" = "dark" {
 
-bg[NORMAL] = "#E8E8E8"
+bg[NORMAL] = @bg_color_dark
 
 	engine "murrine" {
 		textstyle = 2

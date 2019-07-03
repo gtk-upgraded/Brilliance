@@ -119,8 +119,6 @@ style "default" {
 
 style "dark"
 {
-	color["bg_color_dark"] 	= "#3A3A3A"
-	color["fg_color_dark"] 	= "#DFDFDF"
 	color["selected_fg_color_dark"] = "#ffffff"
 
 	fg[NORMAL]        = @fg_color_dark
@@ -304,7 +302,7 @@ style "comboboxentry" = "notebook_button" {
 
 style "menubar" = "dark" {
 
-bg[NORMAL] = "#454545"
+bg[NORMAL] = @bg_color_dark
 
 	engine "murrine" {
 		textstyle = 2
@@ -331,7 +329,7 @@ style "menu" = "dark" {
 xthickness = 0
 ythickness = 0
 
-bg[NORMAL] = "#454545"
+bg[NORMAL] = @bg_color_dark
 bg[INSENSITIVE] = "#8E8B85"
 fg[INSENSITIVE]   = "#8E8B85"
 
