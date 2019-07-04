@@ -1,14 +1,14 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
 Name=Ambiance-Flat-Graphite
-Comment=Ambiance Flat, A Redesigned Modern & Flat, Ambiance Based Theme W/New Colors By RAVEfinity.com
+Comment=Ambiance-Flat, a redesigned modern & flat theme with modern colors. Originally by RAVEfinity.com, now maintained by Elbullazul
 Encoding=UTF-8
 
-Name[en_CA]=index-graphite.theme
+Name[en_CA]=index-aqua.theme
 
 [X-GNOME-Metatheme]
-GtkTheme=Ambiance-Flat-Graphite
-MetacityTheme=Ambiance-Flat-Graphite
-IconTheme=Vibrancy-Full-Dark-Graphite
+GtkTheme=Ambiance-Flat-Aqua
+MetacityTheme=Ambiance-Flat-Aqua
+IconTheme=Vibrancy-Full-Dark-Aqua
 CursorTheme=DMZ-White
 ButtonLayout=close,minimize,maximize:

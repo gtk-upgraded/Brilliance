@@ -10,6 +10,28 @@ INDEX=$WORKDIR/variant-index
 rm -rf $OUTDIR/*
 
 RENDER=false
+GEN=true
+
+gen_index() {
+  target="$1"
+  name="$2"
+  series="$3" 
+  
+  echo "[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=$name
+Comment=$series, a redesigned modern & flat theme with modern colors. Originally by RAVEfinity.com, now maintained by Elbullazul
+Encoding=UTF-8
+
+Name[en_CA]=index-aqua.theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Ambiance-Flat-Aqua
+MetacityTheme=Ambiance-Flat-Aqua
+IconTheme=Vibrancy-Full-Dark-Aqua
+CursorTheme=DMZ-White
+ButtonLayout=close,minimize,maximize:" >> "$target"
+}
 
 args=("$@")
 for f in ${!args[@]}
@@ -26,10 +48,14 @@ do
     -r | --render)
       RENDER=true
     ;;
+    -n | --no-gen)
+      GEN=false
+    ;;
     -h | --help)
       echo " -h  --help   Show this"
       echo " -c  --clean  Remove previously rendered images"
       echo " -r  --render Force run image generation script (much verbose!)"
+      echo " -n  --no-gen Do not generate SASS"
       exit
     ;;
   esac
@@ -80,9 +106,11 @@ do
   mkdir -p $OUTDIR/$DARK_VARIANT/gtk-3.0
   
   cd $i
-    sass -C --sourcemap=none gtk.scss gtk.css
-    sass -C --sourcemap=none gtk-dark.scss gtk-dark.css
-    sass -C --sourcemap=none gtk-light.scss gtk-light.css
+    if [ $GEN == true ]; then
+      sass -C --sourcemap=none gtk.scss gtk.css
+      sass -C --sourcemap=none gtk-dark.scss gtk-dark.css
+      sass -C --sourcemap=none gtk-light.scss gtk-light.css
+    fi
     
     cp gtk.css $OUTDIR/$VARIANT/gtk-3.0/gtk.css
     cp gtk-dark.css $OUTDIR/$VARIANT/gtk-3.0/gtk-dark.css
@@ -106,8 +134,26 @@ do
 done
 cd ..
 
+# static files
 for i in `cat $INDEX`
 do
   VARIANT=Ambiance-Flat-${i^}
-  cp index-$i.theme $OUTDIR/$VARIANT/index.theme
+  LIGHT_VARIANT=Radiance-Flat-${i^}
+  DARK_VARIANT=Ambiance-Blackout-Flat-${i^}
+  
+  cp -a metacity-1/$i $OUTDIR/$VARIANT/metacity-1
+  cp -a metacity-1/$i-light $OUTDIR/$LIGHT_VARIANT/metacity-1
+  cp -a metacity-1/$i-dark $OUTDIR/$DARK_VARIANT/metacity-1
+  
+  cp -a unity/$i $OUTDIR/$VARIANT/unity
+  cp -a unity/$i-light $OUTDIR/$LIGHT_VARIANT/unity
+  cp -a unity/$i-dark $OUTDIR/$DARK_VARIANT/unity
+  
+  cp -a xfwm4/$i $OUTDIR/$VARIANT/xfwm4
+  cp -a xfwm4/$i-light $OUTDIR/$LIGHT_VARIANT/xfwm4
+  cp -a xfwm4/$i-dark $OUTDIR/$DARK_VARIANT/xfwm4
+  
+  gen_index $OUTDIR/$VARIANT/index.theme $VARIANT 'Ambiance-Flat'
+  gen_index $OUTDIR/$LIGHT_VARIANT/index.theme $LIGHT_VARIANT 'Radiance-Flat'
+  gen_index $OUTDIR/$DARK_VARIANT/index.theme $DARK_VARIANT 'Ambiance-Blackout-Flat'
 done
