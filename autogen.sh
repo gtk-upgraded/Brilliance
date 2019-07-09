@@ -107,9 +107,11 @@ do
   
   cd $i
     if [ $GEN == true ]; then
-      sass -C --sourcemap=none gtk.scss gtk.css
-      sass -C --sourcemap=none gtk-dark.scss gtk-dark.css
-      sass -C --sourcemap=none gtk-light.scss gtk-light.css
+      echo "Running SASS for ${i^}"
+    
+      sass -q -C --sourcemap=none gtk.scss gtk.css
+      sass -q -C --sourcemap=none gtk-dark.scss gtk-dark.css
+      sass -q -C --sourcemap=none gtk-light.scss gtk-light.css
     fi
     
     cp gtk.css $OUTDIR/$VARIANT/gtk-3.0/gtk.css
