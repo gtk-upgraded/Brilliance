@@ -30,14 +30,6 @@
         background-color: $unfocused_borders;
       }
     }
-    
-    .primary-toolbar button &, toolbar button &, .primary-toolbar:not(.libreoffice-toolbar) & {
-      border-color: $borders;
-
-      &:backdrop {
-        border-color: $unfocused_borders;
-      }
-    }
 
     headerbar & {
       -GtkWidget-window-dragging: true;
@@ -47,14 +39,6 @@
 
       &:backdrop {
         background-color: $unfocused_borders;
-      }
-    }
-    
-    headerbar button & {
-      border-color: gtkmix($borders, $headerbar_bg_color, 0.5);
-
-      &:backdrop {
-        border-color: $unfocused_borders;
       }
     }
 
@@ -77,8 +61,24 @@
       }
     }
 
+    .primary-toolbar button &, toolbar button &, .primary-toolbar:not(.libreoffice-toolbar) & {
+      border-color: $borders;
+
+      &:backdrop {
+        border-color: $unfocused_borders;
+      }
+    }
+
+    headerbar button & {
+      border-color: gtkmix($borders, $headerbar_bg_color, 0.5);
+
+      &:backdrop {
+        border-color: $unfocused_borders;
+      }
+    }
+
     .titlebutton button &, .titlebutton &.titlebutton {
-      border-color: gtkmix($borders, $titlebar_bg_color, 0.5);
+      border-color: gtkmix($borders, $headerbar_bg_color, 0.5);
 
       &:backdrop {
         border-color: $unfocused_borders;
