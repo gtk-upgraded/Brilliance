@@ -83,7 +83,7 @@ do
   
   cp main.rc $OUTDIR/$VARIANT/gtk-2.0/
   cp main-light.rc $OUTDIR/$LIGHT_VARIANT/gtk-2.0/main.rc
-  cp main.rc $OUTDIR/$DARK_VARIANT/gtk-2.0/
+  cp main-dark.rc $OUTDIR/$DARK_VARIANT/gtk-2.0/main.rc
   
   cp gtkrc-$i $OUTDIR/$VARIANT/gtk-2.0/gtkrc
   cp gtkrc-$i-light $OUTDIR/$LIGHT_VARIANT/gtk-2.0/gtkrc
