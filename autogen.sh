@@ -33,16 +33,13 @@ CursorTheme=DMZ-White
 ButtonLayout=close,minimize,maximize:" >> "$target"
 }
 
-args=("$@")
-for f in ${!args[@]}
-do
-  case ${args[$f]} in
+while [ "$1" != "" ]; do
+  case $1 in
     -c | --clean)
-      for i in `cat $INDEX`
-      do
+      for i in `cat $INDEX`; do
         rm -rf ../src/gtk-3.0/$i/assets-render/assets/*
+        rm -rf ../src/gtk-3.0/$i/assets-render-dark/assets/*
       done
-      
       exit
     ;;
     -r | --render)
@@ -53,12 +50,13 @@ do
     ;;
     -h | --help)
       echo " -h  --help   Show this"
-      echo " -c  --clean  Remove previously rendered images"
+      echo " -c  --clean  Remove previously rendered assets"
       echo " -r  --render Force run image generation script (much verbose!)"
       echo " -n  --no-gen Do not generate SASS"
       exit
     ;;
   esac
+  shift
 done
 
 #gtk2
@@ -122,14 +120,16 @@ do
     cp gtk-dark.css $OUTDIR/$DARK_VARIANT/gtk-3.0/gtk.css
 
     if [ $RENDER == true ]; then
-      cd assets-render
-        ./render-assets.sh
-      cd ..
+      (cd assets-render && ./render-assets.sh)
+      (cd assets-render-dark && ./render-assets.sh)
+        
+      cp -r assets-render/assets/* assets
+      cp -r assets-render-dark/assets/* assets-dark
     fi
     
     cp -a assets-render/assets $OUTDIR/$VARIANT/gtk-3.0/assets
     cp -a assets-render/assets $OUTDIR/$LIGHT_VARIANT/gtk-3.0/assets
-    cp -a assets-render/assets $OUTDIR/$DARK_VARIANT/gtk-3.0/assets
+    cp -a assets-render-dark/assets $OUTDIR/$DARK_VARIANT/gtk-3.0/assets
   
   cd ..
   
