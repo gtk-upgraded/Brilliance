@@ -105,39 +105,28 @@ assistant .sidebar {
   color: #FFFFFF;
   background-color: #484848; }
 
-button:link > label, button:visited > label,
-*:link,
-button:link,
-button:visited {
+button:link > label, button:visited > label, *:link, button:link, button:visited {
   color: #1D8ECE; }
-  button:link > label:visited, button:visited > label:visited,
-  *:link:visited,
-  button:visited {
+  button:link > label:visited, button:visited > label:visited, *:link:visited, button:visited {
     color: mix(#1D8ECE, #FFFFFF, 0.2); }
-    *:selected button:link > label:visited, *:selected button:visited > label:visited, *:selected
-    *:link:visited, *:selected
-    button:visited:link, *:selected
-    button:visited {
+    *:selected button:link > label:visited, *:selected button:visited > label:visited,
+    *:selected *:link:visited,
+    *:selected button:visited:link,
+    *:selected button:visited {
       color: mix(#000000, #1D8ECE, 0.4); }
-  button:link > label:hover, button:visited > label:hover,
-  *:link:hover,
-  button:hover:link,
-  button:hover:visited {
+  button:link > label:hover, button:visited > label:hover, *:link:hover, button:hover:link, button:hover:visited {
     color: shade(#1D8ECE, 1.1); }
-    *:selected button:link > label:hover, *:selected button:visited > label:hover, *:selected
-    *:link:hover, *:selected
-    button:hover:link, *:selected
-    button:hover:visited {
+    *:selected button:link > label:hover, *:selected button:visited > label:hover,
+    *:selected *:link:hover,
+    *:selected button:hover:link,
+    *:selected button:hover:visited {
       color: mix(#000000, #1D8ECE, 0.9); }
-  button:link > label:active, button:visited > label:active,
-  *:link:active,
-  button:active:link,
-  button:active:visited {
+  button:link > label:active, button:visited > label:active, *:link:active, button:active:link, button:active:visited {
     color: #1D8ECE; }
-    *:selected button:link > label:active, *:selected button:visited > label:active, *:selected
-    *:link:active, *:selected
-    button:active:link, *:selected
-    button:active:visited {
+    *:selected button:link > label:active, *:selected button:visited > label:active,
+    *:selected *:link:active,
+    *:selected button:active:link,
+    *:selected button:active:visited {
       color: mix(#000000, #1D8ECE, 0.8); }
   button:link > label:backdrop:backdrop:hover, button:visited > label:backdrop:backdrop:hover, button:link > label:backdrop:backdrop:hover:selected, button:visited > label:backdrop:backdrop:hover:selected, button:link > label:backdrop, button:visited > label:backdrop,
   *:link:backdrop:backdrop:hover,
@@ -153,10 +142,10 @@ button:visited {
   button:link > label:selected, button:visited > label:selected, *:selected button:link > label, *:selected button:visited > label,
   *:link:selected,
   button:selected:link,
-  button:selected:visited, *:selected
-  *:link, *:selected
-  button:link, *:selected
-  button:visited {
+  button:selected:visited,
+  *:selected *:link,
+  *:selected button:link,
+  *:selected button:visited {
     color: mix(#000000, #1D8ECE, 0.8); }
 
 button:link, button:visited {
@@ -777,7 +766,7 @@ terminal-screen-container scrollbar:not(slider):backdrop {
 .caja-location-entry {
   padding: 3px 5px; }
 
-scrolledwindow viewport.frame {
+scrolledwindow.frame, scrolledwindow viewport.frame {
   border: none; }
 
 arrow, combobox arrow {
@@ -1626,20 +1615,24 @@ colorchooser #add-color-button {
 
 headerbar, headerbar:not(.titlebar) {
   padding: 4px 8px;
-  border-width: 0;
-  border-style: solid;
-  border-color: mix(shade(#484848, 0.9), #1D8ECE, 0.5);
-  border-bottom-width: 1px;
+  min-height: 30px;
   color: #000000;
-  background-color: #1D8ECE; }
+  background-color: #1D8ECE;
+  border-bottom: 1px solid #1D8ECE; }
   headerbar:backdrop, headerbar:not(.titlebar):backdrop {
-    border-color: shade(#484848, 0.9);
     color: #FFFFFF;
+    border-bottom-color: shade(#484848, 0.9);
     background-color: #484848; }
-  .titlebar headerbar, .titlebar headerbar:backdrop, .titlebar headerbar:not(.titlebar), .titlebar headerbar:not(.titlebar):backdrop {
-    background-color: transparent; }
-  .tiled headerbar:backdrop, .tiled headerbar, .tiled-top headerbar:backdrop, .tiled-top headerbar, .tiled-right headerbar:backdrop, .tiled-right headerbar, .tiled-bottom headerbar:backdrop, .tiled-bottom headerbar, .tiled-left headerbar:backdrop, .tiled-left headerbar, .maximized headerbar:backdrop, .maximized headerbar, .fullscreen headerbar:backdrop, .fullscreen headerbar, .tiled headerbar:not(.titlebar):backdrop, .tiled headerbar:not(.titlebar), .tiled-top headerbar:not(.titlebar):backdrop, .tiled-top headerbar:not(.titlebar), .tiled-right headerbar:not(.titlebar):backdrop, .tiled-right headerbar:not(.titlebar), .tiled-bottom headerbar:not(.titlebar):backdrop, .tiled-bottom headerbar:not(.titlebar), .tiled-left headerbar:not(.titlebar):backdrop, .tiled-left headerbar:not(.titlebar), .maximized headerbar:not(.titlebar):backdrop, .maximized headerbar:not(.titlebar), .fullscreen headerbar:not(.titlebar):backdrop, .fullscreen headerbar:not(.titlebar) {
+  .tiled headerbar, .tiled headerbar:backdrop, .maximized headerbar, .maximized headerbar:backdrop, .tiled headerbar:not(.titlebar), .tiled headerbar:not(.titlebar):backdrop, .maximized headerbar:not(.titlebar), .maximized headerbar:not(.titlebar):backdrop {
     border-radius: 0; }
+  separator:first-child + headerbar, separator:first-child + headerbar:backdrop, headerbar:first-child, headerbar:first-child:backdrop, separator:first-child + headerbar:not(.titlebar), separator:first-child + headerbar:not(.titlebar):backdrop, headerbar:not(.titlebar):first-child, headerbar:not(.titlebar):first-child:backdrop {
+    border-top-left-radius: 0px; }
+    .maximized separator:first-child + headerbar, .tiled separator:first-child + headerbar, .maximized separator:first-child + headerbar:backdrop, .tiled separator:first-child + headerbar:backdrop, .maximized headerbar:first-child, .tiled headerbar:first-child, .maximized headerbar:first-child:backdrop, .tiled headerbar:first-child:backdrop, .maximized separator:first-child + headerbar:not(.titlebar), .tiled separator:first-child + headerbar:not(.titlebar), .maximized separator:first-child + headerbar:not(.titlebar):backdrop, .tiled separator:first-child + headerbar:not(.titlebar):backdrop, .maximized headerbar:not(.titlebar):first-child, .tiled headerbar:not(.titlebar):first-child, .maximized headerbar:not(.titlebar):first-child:backdrop, .tiled headerbar:not(.titlebar):first-child:backdrop {
+      border-radius: 0; }
+  headerbar:last-child, headerbar:last-child:backdrop, headerbar:not(.titlebar):last-child, headerbar:not(.titlebar):last-child:backdrop {
+    border-top-right-radius: 0px; }
+    .maximized headerbar:last-child, .tiled headerbar:last-child, .maximized headerbar:last-child:backdrop, .tiled headerbar:last-child:backdrop, .maximized headerbar:not(.titlebar):last-child, .tiled headerbar:not(.titlebar):last-child, .maximized headerbar:not(.titlebar):last-child:backdrop, .tiled headerbar:not(.titlebar):last-child:backdrop {
+      border-radius: 0; }
   headerbar .title, headerbar:not(.titlebar) .title {
     padding-left: 12px;
     padding-right: 12px;
@@ -1686,6 +1679,39 @@ headerbar, headerbar:not(.titlebar) {
     background-color: shade(#1D8ECE, 1.15); }
   headerbar entry, headerbar:not(.titlebar) entry {
     padding: 4px 8px; }
+  headerbar.titlebar, .titlebar headerbar, headerbar:not(.titlebar).titlebar, .titlebar headerbar:not(.titlebar) {
+    border-radius: 0px 0px 0px 0px; }
+  headerbar .titlebutton.close, headerbar .titlebutton.maximize, headerbar .titlebutton.minimize, headerbar .titlebutton:not(separator), headerbar:not(.titlebar) .titlebutton.close, headerbar:not(.titlebar) .titlebutton.maximize, headerbar:not(.titlebar) .titlebutton.minimize, headerbar:not(.titlebar) .titlebutton:not(separator) {
+    padding: 2px 2px;
+    border: none;
+    color: transparent;
+    background-color: transparent;
+    background-position: center center;
+    -gtk-icon-shadow: none; }
+  headerbar .titlebutton.close, headerbar:not(.titlebar) .titlebutton.close {
+    background: url("assets/close-normal.png") 100% 100%; }
+    headerbar .titlebutton.close:hover, headerbar:not(.titlebar) .titlebutton.close:hover {
+      background: url("assets/close-hover.png") 100% 100%; }
+    headerbar .titlebutton.close:active, headerbar:not(.titlebar) .titlebutton.close:active {
+      background: url("assets/close-active.png") 100% 100%; }
+    headerbar .titlebutton.close:backdrop, headerbar:not(.titlebar) .titlebutton.close:backdrop {
+      background: url("assets/close-backdrop.png") 100% 100%; }
+  headerbar .titlebutton.minimize, headerbar:not(.titlebar) .titlebutton.minimize {
+    background: url("assets/minimize-normal.png") 100% 100%; }
+    headerbar .titlebutton.minimize:hover, headerbar:not(.titlebar) .titlebutton.minimize:hover {
+      background: url("assets/minimize-hover.png") 100% 100%; }
+    headerbar .titlebutton.minimize:active, headerbar:not(.titlebar) .titlebutton.minimize:active {
+      background: url("assets/minimize-active.png") 100% 100%; }
+    headerbar .titlebutton.minimize:backdrop, headerbar:not(.titlebar) .titlebutton.minimize:backdrop {
+      background: url("assets/minimize-backdrop.png") 100% 100%; }
+  headerbar .titlebutton.maximize, headerbar:not(.titlebar) .titlebutton.maximize {
+    background: url("assets/maximize-normal.png") 100% 100%; }
+    headerbar .titlebutton.maximize:hover, headerbar:not(.titlebar) .titlebutton.maximize:hover {
+      background: url("assets/maximize-hover.png") 100% 100%; }
+    headerbar .titlebutton.maximize:active, headerbar:not(.titlebar) .titlebutton.maximize:active {
+      background: url("assets/maximize-active.png") 100% 100%; }
+    headerbar .titlebutton.maximize:backdrop, headerbar:not(.titlebar) .titlebutton.maximize:backdrop {
+      background: url("assets/maximize-backdrop.png") 100% 100%; }
 
 toolbar {
   padding: 4px;
@@ -2025,9 +2051,13 @@ tooltip {
 textview {
   color: #FFFFFF;
   background-color: #1F1F1F; }
-  textview text:selected, textview text selection, textview text:selected:focus, textview text selection:focus {
-    color: #000000;
-    background-color: #1D8ECE; }
+  textview text {
+    background-color: #1F1F1F; }
+    textview text:selected, textview text selection, textview text:selected:focus, textview text selection:focus {
+      color: #000000;
+      background-color: #1D8ECE; }
+    textview text:backdrop {
+      background-color: #1F1F1F; }
 
 treeview {
   -treeview-vertical-separator: 0; }
@@ -2707,8 +2737,6 @@ panel-toplevel.background na-tray-applet {
 .mate-panel-menu-bar {
   color: #FFFFFF;
   background-color: #484848; }
-  .mate-panel-menu-bar button, .mate-panel-menu-bar button.flat {
-    background-color: transparent; }
   .mate-panel-menu-bar, .mate-panel-menu-bar .menubar {
     background-color: #484848; }
   .mate-panel-menu-bar menubar, .mate-panel-menu-bar menubar menuitem, .mate-panel-menu-bar togglebutton {
@@ -2725,16 +2753,18 @@ panel-toplevel.background na-tray-applet {
     font-style: normal; }
     .mate-panel-menu-bar GtkMenu .label:disabled {
       color: mix(#FFFFFF, #484848, 0.5); }
-  .mate-panel-menu-bar .button:not(#tasklist-button) {
+  .mate-panel-menu-bar button, .mate-panel-menu-bar button.flat {
+    background-color: transparent; }
+  .mate-panel-menu-bar > .button:not(#tasklist-button) {
     color: #FFFFFF;
     background-color: #484848;
     border-radius: 0;
     border: none; }
-    .mate-panel-menu-bar .button:not(#tasklist-button):hover {
+    .mate-panel-menu-bar > .button:not(#tasklist-button):hover {
       border: none;
       color: #FFFFFF;
       background-color: shade(#484848, 1.1); }
-    .mate-panel-menu-bar .button:not(#tasklist-button):active, .mate-panel-menu-bar .button:not(#tasklist-button):checked {
+    .mate-panel-menu-bar > .button:not(#tasklist-button):active, .mate-panel-menu-bar > .button:not(#tasklist-button):checked {
       color: #000000;
       border: none;
       box-shadow: none;
@@ -2825,7 +2855,7 @@ panel-toplevel.background na-tray-applet {
   color: #FFFFFF;
   border-radius: 0px;
   border: none; }
-  #XfceNotifyWindow.osd label#summary {
+  #XfceNotifyWindow.osd label #summary {
     font-weight: bold; }
   #XfceNotifyWindow.osd button {
     padding: 4px 8px;
