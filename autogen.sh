@@ -1,13 +1,21 @@
 #!/bin/bash
 
 WORKDIR="$PWD/src"
-OUTDIR="$PWD/package"
+OUTDIR="$PWD"
+
+# sassc check
+[ ! -f "/usr/bin/sassc" ] && echo "sassc is not installed, or not found at '/usr/bin/sassc'" && exit 1
+
+# remove previous generation
+for d in ./*
+do
+  [ -d $d/Azurra ] && continue
+  [ -d $d ] && rm -r $d
+done
 
 cd $WORKDIR
 
 INDEX=$WORKDIR/variant-index
-
-rm -rf $OUTDIR/*
 
 RENDER=false
 GEN=true
@@ -107,9 +115,9 @@ do
     if [ $GEN == true ]; then
       echo "Running SASS for ${i^}"
     
-      sass -q -C --sourcemap=none gtk.scss gtk.css
-      sass -q -C --sourcemap=none gtk-dark.scss gtk-dark.css
-      sass -q -C --sourcemap=none gtk-light.scss gtk-light.css
+      sassc -M gtk.scss gtk.css
+      sassc -M gtk-dark.scss gtk-dark.css
+      sassc -M gtk-light.scss gtk-light.css
     fi
     
     cp gtk.css $OUTDIR/$VARIANT/gtk-3.0/gtk.css
